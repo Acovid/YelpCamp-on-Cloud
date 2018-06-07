@@ -1,0 +1,5 @@
+---
+applications:
+ - name: YelpCamp
+   random-route: true
+   memory: 256M
