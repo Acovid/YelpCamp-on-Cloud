@@ -23,9 +23,7 @@ var commentRoutes       = require('./routes/comments'),
 // value: (path to the DB as provided by the DB host )
 var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v4";
 
-// Connect to mongodb using the environment variable for DB.
-// On IBM Cloud, this is a user defined variable in the app's runtime, 
-mongoose.connect(url);
+mongoose.connect(url); // Connect to mongodb
 
 //instruct express to use body parser
 app.use(bodyParser.urlencoded({extended: true})); 
@@ -62,7 +60,7 @@ app.use(indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
-// Start listening on port - either on IBM Cloud or locally on 3000
+// Start listening on port - either on Cloud or locally on 3000
 var port = process.env.PORT || 3000
 app.listen(port, process.env.IP, function(){
     console.log("The YelpCamp Server Has Started at port " + port);
